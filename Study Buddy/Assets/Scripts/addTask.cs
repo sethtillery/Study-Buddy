@@ -32,7 +32,7 @@ public class addTask : MonoBehaviour
             taskDueDate.text = inputTaskDueDate.text;
 
             GameObject newTask = Instantiate(taskPrefab, startPosition.position, transform.rotation) as GameObject;
-            newTask.transform.SetParent(GameObject.Find("Content").transform);
+            newTask.transform.SetParent(GameObject.Find("TaskButtons").transform);
             inputScreen.gameObject.SetActive(false);
             newTask.transform.GetChild(0).GetComponent<Text>().text = taskName.text;
             newTask.transform.GetChild(1).GetComponent<Text>().text = taskDueDate.text;
