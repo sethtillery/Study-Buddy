@@ -3,33 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class Timer: MonoBehaviour
 {
-    public float timerValue = 90;
-    public Text timerText;
+  public float timeValue = 90;
+  public Text timerText;
 
-    void Update()
+  void Update()
+  {
+    if (timeValue > 0)
     {
-        if (timerValue > 0)
-     {    
-        timerValue -= Time.deltaTime;
-     }
-     else 
-     {
-        timerValue = 0;
-     }
-        DisplayTime(timerValue);
+      timeValue -= Time.deltaTime;
     }
-    void DisplayTimer(float timeToDisplay)
-{
+    else
+    {
+     timeValue = 0;
+    }
+
+    DisplayTime(timeValue);
+   }
+
+   void DisplayTime(float timeToDisplay)
+   {
     if (timeToDisplay < 0)
     {
-        timeTodisplay = 0;
+      timeToDisplay = 0;
     }
 
-    float minutes = Mathf.floorToInt(timeToDisplay / 60);
-    float second =  Mathf.FloorToInt(timeToDisplay % 60);
+    float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+    float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+    float milliseconds = timeToDisplay % 1 * 1000;
 
-    timerText.text = string.Format("{0:00}:{1:00}"), minutes, seconds;
-}
+    timerText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
+
+   }
 }
