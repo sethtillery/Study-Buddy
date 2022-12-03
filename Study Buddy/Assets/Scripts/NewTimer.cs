@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class NewTimer: MonoBehaviour
 {
-    public float timeValue = 90;
+    public float timeValue = 15;
     public Text timerText;
     public bool startTime = false;
 
     private void Start()
     {
-        DisplayTime(timeValue);
+        DisplayTime(timeValue * 60);
+        timeValue *= 60;
     }
 
     void Update()
@@ -20,7 +21,9 @@ public class NewTimer: MonoBehaviour
         {
             if (timeValue > 0)
             {
+               // timeValue *= 60;
               timeValue -= Time.deltaTime;
+                //timeValue /= 60;
             }
             else
             {
@@ -34,6 +37,7 @@ public class NewTimer: MonoBehaviour
 
    public void DisplayTime(float timeToDisplay)
    {
+        
     if (timeToDisplay < 0)
     {
       timeToDisplay = 0;
@@ -41,9 +45,9 @@ public class NewTimer: MonoBehaviour
 
     float minutes = Mathf.FloorToInt(timeToDisplay / 60);
     float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-    float milliseconds = timeToDisplay % 1 * 1000;
+   // float milliseconds = timeToDisplay % 1 * 1000;
 
-    timerText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
+    timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
    }
 }

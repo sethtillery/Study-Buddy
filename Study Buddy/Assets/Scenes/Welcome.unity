@@ -2015,7 +2015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 348, y: 41}
+  m_AnchoredPosition: {x: 475, y: 41}
   m_SizeDelta: {x: 214.5604, y: 117.5859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823943881
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce144dfd5fedfc0419ccc964cdf69211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 90
+  timeValue: 15
   timerText: {fileID: 823943882}
   startTime: 0
 --- !u!114 &823943882
@@ -2066,7 +2066,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '                00:00'
+  m_Text: 00:00
 --- !u!222 &823943883
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4898,7 +4898,7 @@ PrefabInstance:
       objectReference: {fileID: 546512267}
     - target: {fileID: 5667686272907918700, guid: 4f2f0f3a85bbd504babf2b779a5f0f7a, type: 3}
       propertyPath: m_Text
-      value: Enter Time in Seconds
+      value: Enter Time in Minutes
       objectReference: {fileID: 0}
     - target: {fileID: 6313637622283448245, guid: 4f2f0f3a85bbd504babf2b779a5f0f7a, type: 3}
       propertyPath: m_SizeDelta.x

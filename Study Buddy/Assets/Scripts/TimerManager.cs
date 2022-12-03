@@ -35,7 +35,7 @@ public class TimerManager : MonoBehaviour
     {
         newTimerAmount = float.Parse(inputTime.text);
         timer.timeValue = newTimerAmount;
-        timer.DisplayTime(timer.timeValue);
+        timer.DisplayTime(timer.timeValue * 60);
         setTimerScreen.SetActive(false);
     }
 }
