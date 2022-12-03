@@ -5,24 +5,34 @@ using UnityEngine.UI;
 
 public class NewTimer: MonoBehaviour
 {
-  public float timeValue = 90;
-  public Text timerText;
+    public float timeValue = 90;
+    public Text timerText;
+    public bool startTime = false;
 
-  void Update()
-  {
-    if (timeValue > 0)
+    private void Start()
     {
-      timeValue -= Time.deltaTime;
-    }
-    else
-    {
-     timeValue = 0;
+        DisplayTime(timeValue);
     }
 
-    DisplayTime(timeValue);
-   }
+    void Update()
+    {
+        if(startTime)
+        {
+            if (timeValue > 0)
+            {
+              timeValue -= Time.deltaTime;
+            }
+            else
+            {
+             timeValue = 0;
+            }
 
-   void DisplayTime(float timeToDisplay)
+            DisplayTime(timeValue);
+
+        }
+    }
+
+   public void DisplayTime(float timeToDisplay)
    {
     if (timeToDisplay < 0)
     {

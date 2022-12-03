@@ -14,6 +14,8 @@ public class addTask : MonoBehaviour
     public InputField inputTaskName;
     public InputField inputTaskDueDate;
     public GameObject inputScreen;
+    public InputField inputTaskTime;
+    public float tasktime;
 
     
     public void setTask()
@@ -30,6 +32,7 @@ public class addTask : MonoBehaviour
         {
             taskName.text = inputTaskName.text;
             taskDueDate.text = inputTaskDueDate.text;
+            tasktime = float.Parse(inputTaskTime.text);
 
             GameObject newTask = Instantiate(taskPrefab, startPosition.position, transform.rotation) as GameObject;
             newTask.transform.SetParent(GameObject.Find("TaskButtons").transform);

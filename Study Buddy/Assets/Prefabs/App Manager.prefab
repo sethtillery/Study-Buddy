@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8030047998753306820}
   - component: {fileID: 8030047998753306821}
   - component: {fileID: 8030047998753306875}
+  - component: {fileID: 546512267}
   m_Layer: 0
   m_Name: App Manager
   m_TagString: Untagged
@@ -67,5 +68,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTasks: 0
   addTask: {fileID: 8030047998753306821}
-  buttons: []
   optionsScreen: {fileID: 0}
+  ds: {fileID: 0}
+  allChildren: []
+--- !u!114 &546512267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030047998753306822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03004238d981ab94d834911bf47e692c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTimerAmount: 0
+  inputTime: {fileID: 0}
+  setTimerScreen: {fileID: 0}

@@ -12,6 +12,9 @@ public class TaskOptions : MonoBehaviour
     public DestroyTask ds;
     bool foundSelectedButton = false;
     public GameObject[] allChildren;
+    public GameObject TaskScreen;
+    public GameObject TimerScreen;
+    public NewTimer timer;
 
     public void completeTask()
     {
@@ -48,7 +51,6 @@ public class TaskOptions : MonoBehaviour
             k += 1;
         }
         
-       // GameObject[] btn = GameObject.FindGameObjectsWithTag("Button");
         for (int i = 0; i < allChildren.Length; i++)
         {
             if(allChildren[i].gameObject.tag == "Selected Button")
@@ -72,8 +74,32 @@ public class TaskOptions : MonoBehaviour
         optionsScreen.SetActive(false);
     }
 
-    void update()
+    public void GoToTimer()
     {
-      
+        allChildren = new GameObject[GameObject.Find("TaskButtons").transform.childCount];
+
+        int k = 0;
+        foreach (Transform child in GameObject.Find("TaskButtons").transform)
+        {
+            allChildren[k] = child.gameObject;
+            k += 1;
+        }
+
+        for (int i = 0; i < allChildren.Length; i++)
+        {
+            if (allChildren[i].gameObject.tag == "Selected Button")
+            {
+                // timer.timeValue = allChildren[i].
+                Debug.Log("Found Selected Button");
+                allChildren[i].tag = "Button";
+            }
+        }
+
+        TaskScreen.SetActive(false);
+        TimerScreen.SetActive(true);
+
+        timer = GameObject.Find("timertext").GetComponent<NewTimer>();
+        timer.timeValue = addTask.tasktime;
+
     }
 }
