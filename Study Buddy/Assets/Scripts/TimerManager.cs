@@ -9,6 +9,7 @@ public class TimerManager : MonoBehaviour
     public float newTimerAmount;
     public InputField inputTime;
     public GameObject setTimerScreen;
+    public bool automated = false;
 
     private void Start()
     {
@@ -33,9 +34,14 @@ public class TimerManager : MonoBehaviour
 
     public void newTimeAmount()
     {
-        newTimerAmount = float.Parse(inputTime.text);
+        if (automated)
+            newTimerAmount = 30f;
+        else
+            newTimerAmount = float.Parse(inputTime.text);
+
         timer.timeValue = newTimerAmount;
         timer.DisplayTime(timer.timeValue * 60);
+        timer.timeValue *= 60;
         setTimerScreen.SetActive(false);
     }
 }

@@ -16,6 +16,7 @@ public class addTask : MonoBehaviour
     public GameObject inputScreen;
     public InputField inputTaskTime;
     public float tasktime;
+    public bool automated = false;
 
     
     public void setTask()
@@ -30,15 +31,33 @@ public class addTask : MonoBehaviour
     {
         if(taskCounter < 10)
         {
-            taskName.text = inputTaskName.text;
-            taskDueDate.text = inputTaskDueDate.text;
-            tasktime = float.Parse(inputTaskTime.text);
+            if(automated)
+            {
+                taskName.text = "Math Quiz";
+                taskDueDate.text = "Due Date: 12/09";
+                tasktime = 20f;
+            }
+            else
+            {
+                taskName.text = inputTaskName.text;
+                taskDueDate.text = inputTaskDueDate.text;
+                tasktime = float.Parse(inputTaskTime.text);
+            }
 
             GameObject newTask = Instantiate(taskPrefab, startPosition.position, transform.rotation) as GameObject;
             newTask.transform.SetParent(GameObject.Find("TaskButtons").transform);
             inputScreen.gameObject.SetActive(false);
-            newTask.transform.GetChild(0).GetComponent<Text>().text = taskName.text;
-            newTask.transform.GetChild(1).GetComponent<Text>().text = taskDueDate.text;
+            if(automated)
+            {
+                newTask.transform.GetChild(0).GetComponent<Text>().text = "Math Quiz";
+                newTask.transform.GetChild(1).GetComponent<Text>().text = "Due Date: 12/09";
+
+            }
+            else
+            {
+                newTask.transform.GetChild(0).GetComponent<Text>().text = taskName.text;
+                newTask.transform.GetChild(1).GetComponent<Text>().text = taskDueDate.text;
+            }
 
             inputTaskName.text = "";
             inputTaskDueDate.text = "";
